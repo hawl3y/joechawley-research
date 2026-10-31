@@ -14,9 +14,9 @@ Mark each item `[x]` when confirmed. Add the reviewer and date at the bottom of 
 ### Environment Variables
 
 - [ ] `NEXT_PUBLIC_SITE_URL` is set to the production URL (`https://joechawley.com`)
-- [ ] `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set to the registered domain (`joechawley.com`)
+- [ ] `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is NOT set (analytics not in use)
 - [ ] No `.env` file is committed to the repository
-- [ ] Both variables are confirmed in Vercel project → Settings → Environment Variables
+- [ ] Both are confirmed in Vercel project → Settings → Environment Variables
 
 ### Repository State
 
@@ -129,16 +129,20 @@ Test at: [https://developers.facebook.com/tools/debug/](https://developers.faceb
 
 ## Analytics Verification
 
-**Prerequisite:** Domain must be registered in Plausible before verifying.
+**Not in use (since v0.2.10).** Analytics is not in use and `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` stays unset unless the researcher decides otherwise. Skip the Plausible steps below; they are kept for reference only. Instead, verify:
 
-### Plausible Setup (First Deployment Only)
+- [ ] No Plausible `<script>` (or any third-party script) appears in page source
+
+**Prerequisite (if analytics is ever enabled):** Domain must be registered in Plausible before verifying.
+
+### Plausible Setup (not in use)
 
 - [ ] Account created at plausible.io
 - [ ] Domain `joechawley.com` added to Plausible
 - [ ] `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` env var matches the Plausible-registered domain exactly
 - [ ] Script appears in page source: `<script defer data-domain="..." src="https://plausible.io/js/script.js">`
 
-### Live Verification
+### Live Verification (not in use)
 
 - [ ] Visit the production site (not in an ad-blocker-blocked browser)
 - [ ] In Plausible dashboard, confirm the visit appears in real-time view within 30 seconds
@@ -221,7 +225,7 @@ Using Chrome Lighthouse or PageSpeed Insights:
 | Core pages verified | | | |
 | SEO verified | | | |
 | Social sharing verified | | | |
-| Analytics verified | | | |
+| Analytics verified (not in use: no script present) | | | |
 | Mobile verified | | | |
 | Accessibility verified | | | |
 | **Overall sign-off** | | | |
@@ -235,4 +239,4 @@ Using Chrome Lighthouse or PageSpeed Insights:
 | 6 stub artifacts show "Content pending" | Expected | Phase 7 (content conversion) not yet complete |
 | Publications page shows empty state | Expected | No papers submitted yet |
 | Single journal entry | Expected | Journal grows as research progresses |
-| Plausible not yet configured | Expected | Analytics configured after domain DNS resolves |
+| Analytics not in use | Expected | Plausible support is dormant; `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` stays unset |

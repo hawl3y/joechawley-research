@@ -74,14 +74,14 @@ This is not a blog, portfolio, consulting site, or marketing website. It exists 
 - **Styling:** Tailwind CSS v3.4 with custom design tokens
 - **Content:** Contentlayer2 + MDX
 - **Hosting:** Vercel
-- **Analytics:** Plausible (env-controlled)
+- **Analytics:** none in use. Plausible support is dormant (`components/analytics/PlausibleScript.tsx`) and loads only if `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set.
 - **Source control:** GitHub: https://github.com/hawl3y/joechawley-research (site only; see Repositories)
 - **Hosting project:** Vercel project `joechawley-research`
 - **Deployment:** https://joechawley.com (primary domain). research.joechawley.com and www.joechawley.com redirect to it (308, same path) through `next.config.mjs`; the redirects are active only when `NEXT_PUBLIC_SITE_URL` is set. The legacy Vercel subdomain https://tradecraft-labs.vercel.app still resolves.
 
 ### Repositories
 
-All three are private.
+The site repo is public. The sources and archive repos are private and must stay private.
 
 - `hawl3y/joechawley-research`: the site. This repo. History starts at v0.2.7 (2026-10-31) with no `research/` folder.
 - `hawl3y/joechawley-research-sources`: research source materials (`research/`), with their history. Paths in this file that start with `research/` are relative to the root of that repo. Only the latest commit is anonymized; earlier commits hold the originals.
@@ -94,7 +94,7 @@ Never commit `research/` to the site repo (it is in `.gitignore`). Never push th
 | Variable | Required | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Yes (production) | Controls `metadataBase`, sitemap URLs, and OG image domain display. Production value: `https://joechawley.com`. Also sets the redirect target for old hosts in `next.config.mjs` (no redirects when unset). Without it, canonical URLs fall back to `https://joechawley.com` (`SITE.url` in `lib/site.ts`). |
-| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Plausible analytics domain. If unset, no analytics script is injected. Platform functions normally without it. |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Keep unset | Analytics is not in use. Leave this unset in Vercel and locally unless the researcher decides otherwise. If set, the dormant Plausible script loads for that domain. |
 
 ---
 
@@ -287,7 +287,8 @@ v0.2.5    Homepage leads with current research
 v0.2.6    Mission line, About copy, header and footer separation
 v0.2.7    Repo split: site repo without research sources
 v0.2.8    Repo split follow-up: build fix, commit author
-v0.2.9    joechawley.com primary domain, site name Joe C. Hawley, About rewrite (current)
+v0.2.9    joechawley.com primary domain, site name Joe C. Hawley, About rewrite
+v0.2.10   Analytics marked not in use (docs only) (current)
 v0.3.0    Phase 7 complete: all artifacts converted
 v0.4.0    First paper submitted
 v1.0.0    First paper published
