@@ -49,4 +49,4 @@ next-env.d.ts
 # Visual review screenshots
 docs/screenshots/
 # Research sources live in the private joechawley-research-sources repo
-research/
+/research/
