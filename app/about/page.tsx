@@ -3,8 +3,7 @@ import Link from 'next/link'
 import PageLayout from '@/components/layout/PageLayout'
 import { SITE, OG_DEFAULTS } from '@/lib/site'
 import { getActiveProjects } from '@/lib/content'
-
-const HEADLINE = 'Cybersecurity Director | Researcher in cybersecurity governance, risk, and value'
+import ResearchQuestion from '@/components/research/ResearchQuestion'
 
 const CREDENTIALS = [
   'CISSP',
@@ -25,72 +24,80 @@ const SPEAKING_AND_WRITING: { text: string; href?: string }[] = [
 
 export const metadata: Metadata = {
   title: 'About',
-  description: `${SITE.author}: ${HEADLINE}.`,
+  description: SITE.mission.full,
   openGraph: {
     ...OG_DEFAULTS,
     title: 'About',
-    description: `${SITE.author}: ${HEADLINE}.`,
+    description: SITE.mission.full,
   },
 }
-
-const bodyText = 'font-serif text-lg text-muted leading-relaxed'
-const sectionClass = 'mb-12 pb-12 border-b border-gray-100'
-const sectionHeading = 'font-serif font-medium text-xl text-ink mb-4'
-const linkClass = 'text-navy hover:underline'
 
 export default function AboutPage() {
   const current = getActiveProjects()[0] ?? null
 
   return (
     <PageLayout>
-      {/* Header */}
-      <header className={sectionClass}>
-        <h1 className="font-serif font-medium text-3xl md:text-4xl text-ink leading-[1.25] mb-3">
-          {SITE.author}
-        </h1>
-        <p className="text-base text-muted leading-relaxed">{HEADLINE}</p>
-      </header>
-
-      {/* Bio */}
-      <section className={sectionClass} aria-label="Bio">
-        <p className="font-serif font-medium text-2xl text-ink leading-snug mb-5">
-          I help organizations make clear, risk-informed security decisions.
+      {/* Mission */}
+      <h1 className="sr-only">About</h1>
+      <section className="mb-12 pb-12 border-b border-gray-100">
+        <p className="font-serif font-medium text-3xl md:text-4xl text-ink leading-[1.25] mb-6">
+          {SITE.mission.full}
         </p>
-        <p className={`${bodyText} mb-5`}>
-          Director-level security leader in the medical technology industry,
-          with 20+ years in the field. I started in software and web
-          development and now work on enterprise security strategy.
+        <p className="font-serif text-lg text-muted leading-relaxed">
+          Research is the product. This platform documents research in
+          progress, not just final outputs. Working theories, raw
+          observations, literature frameworks, and the reasoning behind
+          decisions are published as they develop.
         </p>
-        <p className={bodyText}>Based in New York.</p>
       </section>
 
       {/* Research focus */}
-      <section className={sectionClass}>
-        <h2 className={sectionHeading}>Research Focus</h2>
-        <p className={`${bodyText} mb-5`}>
-          Independent research on how security organizations measure, prove,
-          and communicate the value they deliver.
+      <section className="mb-12 pb-12 border-b border-gray-100">
+        <h2 className="font-serif font-medium text-xl text-ink mb-4">Research Focus</h2>
+        {current && (
+          <>
+            <p className="font-serif text-lg text-muted leading-relaxed mb-5">
+              The current research, Project {current.projectNumber}, asks:{' '}
+              {current.researchQuestion} The study is role-neutral: it does
+              not assume or test any specific security role.
+            </p>
+            {current.researchQuestions && current.researchQuestions.length > 0 && (
+              <ResearchQuestion
+                question={current.researchQuestion}
+                questions={current.researchQuestions}
+                className="mb-5"
+              />
+            )}
+          </>
+        )}
+        <p className="font-serif text-lg text-muted leading-relaxed">
+          Earlier research examined the BISO as a governance intermediary
+          (paused).
         </p>
-        <ul className="space-y-2 text-base">
-          {current && (
-            <li>
-              <Link href={`/research/${current.slug}`} className={linkClass}>
-                Project {current.projectNumber}: {current.title}
-              </Link>
-            </li>
-          )}
-          <li>
-            <Link href="/research" className={linkClass}>
-              All research
-            </Link>
-          </li>
-        </ul>
+      </section>
+
+      {/* Founder */}
+      <section className="mb-12 pb-12 border-b border-gray-100">
+        <h2 className="font-serif font-medium text-xl text-ink mb-4">About the Researcher</h2>
+        <p className="font-serif text-lg text-muted leading-relaxed mb-5">
+          I help organizations make clear, risk-informed security decisions.
+          I am a director-level security leader in the medical technology
+          industry, with 20+ years in the field. I started in software and web
+          development and now work on enterprise security strategy. Based in
+          New York.
+        </p>
+        <p className="font-serif text-lg text-muted leading-relaxed">
+          I am completing a Master of Science in Cybersecurity at Georgia
+          Tech. My graduate research develops and evaluates a framework for
+          measuring and communicating the realized business value of
+          cybersecurity, using Design Science Research.
+        </p>
       </section>
 
       {/* Credentials */}
-      <section className={sectionClass}>
-        <h2 className={sectionHeading}>Credentials</h2>
-        <ul className={`${bodyText} list-disc pl-6 space-y-2`}>
+      <section className="mb-12 pb-12 border-b border-gray-100">
+        <h2 className="font-serif font-medium text-xl text-ink mb-4">Credentials</h2>
+        <ul className="font-serif text-lg text-muted leading-relaxed list-disc pl-6 space-y-2">
           {CREDENTIALS.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -98,13 +105,18 @@ export default function AboutPage() {
       </section>
 
       {/* Speaking and writing */}
-      <section className={sectionClass}>
-        <h2 className={sectionHeading}>Speaking and Writing</h2>
-        <ul className={`${bodyText} list-disc pl-6 space-y-2`}>
+      <section className="mb-12 pb-12 border-b border-gray-100">
+        <h2 className="font-serif font-medium text-xl text-ink mb-4">Speaking and Writing</h2>
+        <ul className="font-serif text-lg text-muted leading-relaxed list-disc pl-6 space-y-2">
           {SPEAKING_AND_WRITING.map((item) => (
             <li key={item.text}>
               {item.href ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-navy hover:underline"
+                >
                   {item.text}
                 </a>
               ) : (
@@ -115,22 +127,48 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      {/* Connect */}
+      {/* External links */}
       <section>
-        <h2 className={sectionHeading}>Connect</h2>
+        <h2 className="font-serif font-medium text-xl text-ink mb-4">Elsewhere</h2>
         <ul className="space-y-3">
           <li>
-            <a href={SITE.links.linkedin} target="_blank" rel="noopener noreferrer" className={`text-base ${linkClass}`}>
+            <a
+              href={SITE.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base text-navy hover:underline"
+            >
               LinkedIn
             </a>
-            <span className="text-sm text-muted ml-2">(preferred contact)</span>
+            <span className="text-sm text-muted ml-2">(professional profile)</span>
           </li>
           <li>
-            <a href={SITE.links.github} target="_blank" rel="noopener noreferrer" className={`text-base ${linkClass}`}>
+            <a
+              href={SITE.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base text-navy hover:underline"
+            >
               GitHub
             </a>
           </li>
         </ul>
+
+        <div className="mt-8 pt-6 border-t border-gray-100">
+          <p className="text-sm text-muted leading-relaxed">
+            For research inquiries or collaboration,
+            reach out via{' '}
+            <a
+              href={SITE.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-navy hover:underline"
+            >
+              LinkedIn
+            </a>
+            .
+          </p>
+        </div>
       </section>
     </PageLayout>
   )
