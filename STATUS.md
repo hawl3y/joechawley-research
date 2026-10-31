@@ -1,6 +1,6 @@
 # Status
 
-Last updated: 2026-10-30
+Last updated: 2026-10-31
 
 ## Current State
 
@@ -8,7 +8,7 @@ Read this first to resume work.
 
 - Active: Project 002 (`project-002-cyber-value`), framework v0.6 (`research/project-002-cyber-value/framework/Project-002-Approach-and-Framework-v0.6.md`).
 - No participant data. Project 002 collects no data from people.
-- Site: v0.2.6, live at https://research.joechawley.com. Repo `hawl3y/joechawley-research`, Vercel project `joechawley-research`.
+- Site: v0.2.9, live at https://joechawley.com (primary domain; research.joechawley.com redirects). Repo `hawl3y/joechawley-research`, Vercel project `joechawley-research`.
 - Done: literature review v0.1 (targeted, not systematic): `research/project-002-cyber-value/literature/Literature-Review-v0.1.md`.
 - Done: framework v0.5 decisions (P3 added, comparison scope expanded, public-material test reworked, Gartner via public summaries only).
 - Done: synthetic Value Records v0.1 (`research/project-002-cyber-value/records/Synthetic-Value-Records-v0.1.md`): 8 records, all categories, all tiers, enterprise and product. Changes carried into framework v0.6.

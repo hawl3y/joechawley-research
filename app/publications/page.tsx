@@ -39,13 +39,12 @@ export default function PublicationsPage() {
             No publications yet.
           </p>
           <p className="text-sm text-muted leading-relaxed mb-6">
-            {SITE.name} is currently in the research and interview phase. The
-            first paper is in progress. Follow the journal for updates as the
-            research develops.
+            The first paper is in progress. Follow the journal for updates as
+            the research develops.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/research/project-001-biso"
+              href="/research"
               className="text-sm text-navy hover:underline font-medium"
             >
               View current research →

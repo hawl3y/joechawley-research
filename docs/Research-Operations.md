@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the operational workflow for maintaining the research platform (repository joechawley-research, formerly Tradecraft Labs; public site Joe C. Hawley · Research at https://research.joechawley.com).
+This document defines the operational workflow for maintaining the research platform (repository joechawley-research, formerly Tradecraft Labs; public site Joe C. Hawley at https://joechawley.com; research.joechawley.com redirects there).
 
 Research source materials (`research/`, including transcripts and analyses) live in the private `joechawley-research-sources` repo, not in the site repo. Pre-split history is in the private `joechawley-research-archive` repo; commit hashes cited in docs before v0.2.7 refer to it.
 

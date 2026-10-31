@@ -1,6 +1,6 @@
 # joechawley-research: CLAUDE.md
 
-**Naming:** The project was formerly Tradecraft Labs; that name is retired. The internal name is now `joechawley-research` (GitHub repo, local folder, Vercel project). The public site is **Joe C. Hawley · Research** at https://research.joechawley.com. Never use "Tradecraft Labs" in user-facing text. Historical records keep the old name as written (dated journal entries, `docs/releases/`, `docs/build/`, `docs/reviews/`, `research/`).
+**Naming:** The project was formerly Tradecraft Labs; that name is retired. The internal name is now `joechawley-research` (GitHub repo, local folder, Vercel project). The public site is **Joe C. Hawley** at https://joechawley.com (primary domain since v0.2.9). https://research.joechawley.com and https://www.joechawley.com redirect (308) to the same path on joechawley.com. The site name was "Joe C. Hawley · Research" from v0.2.0 to v0.2.8. Never use "Tradecraft Labs" in user-facing text. Historical records keep the old name as written (dated journal entries, `docs/releases/`, `docs/build/`, `docs/reviews/`, `research/`).
 
 **Branding:** The favicon uses the shared H mark from joehawley.com (`public/brand/hawley-logo.svg`, artwork unaltered), with navy #1E3A5F in the H cutout. Icon files: `app/favicon.ico` (16, 32, 48), `app/icon1.svg`, `app/icon2.png` (512; numeric suffixes so Next.js links both), `app/apple-icon.png` (180, white corners for iOS). No other logo art.
 
@@ -37,7 +37,7 @@ STATUS.md
 
 ## Purpose
 
-Joe C. Hawley · Research (https://research.joechawley.com) is Joe C. Hawley's independent research platform for cybersecurity governance, risk, and value. Site name, descriptor, author, and canonical URL are defined once in `lib/site.ts`.
+Joe C. Hawley (https://joechawley.com) is Joe C. Hawley's primary site and independent research platform for cybersecurity governance, risk, and value. Site name, descriptor, author, and canonical URL are defined once in `lib/site.ts`.
 
 This is not a blog, portfolio, consulting site, or marketing website. It exists to:
 
@@ -77,7 +77,7 @@ This is not a blog, portfolio, consulting site, or marketing website. It exists 
 - **Analytics:** Plausible (env-controlled)
 - **Source control:** GitHub: https://github.com/hawl3y/joechawley-research (site only; see Repositories)
 - **Hosting project:** Vercel project `joechawley-research`
-- **Deployment:** https://research.joechawley.com (custom domain; the legacy Vercel subdomain https://tradecraft-labs.vercel.app still resolves)
+- **Deployment:** https://joechawley.com (primary domain). research.joechawley.com and www.joechawley.com redirect to it (308, same path) through `next.config.mjs`; the redirects are active only when `NEXT_PUBLIC_SITE_URL` is set. The legacy Vercel subdomain https://tradecraft-labs.vercel.app still resolves.
 
 ### Repositories
 
@@ -93,7 +93,7 @@ Never commit `research/` to the site repo (it is in `.gitignore`). Never push th
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Yes (production) | Controls `metadataBase`, sitemap URLs, and OG image domain display. Without it, canonical URLs fall back to `https://research.joechawley.com` (`SITE.url` in `lib/site.ts`). |
+| `NEXT_PUBLIC_SITE_URL` | Yes (production) | Controls `metadataBase`, sitemap URLs, and OG image domain display. Production value: `https://joechawley.com`. Also sets the redirect target for old hosts in `next.config.mjs` (no redirects when unset). Without it, canonical URLs fall back to `https://joechawley.com` (`SITE.url` in `lib/site.ts`). |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Plausible analytics domain. If unset, no analytics script is injected. Platform functions normally without it. |
 
 ---
@@ -166,7 +166,7 @@ Projects: `project-001-biso` (paused), `project-002-cyber-value` (current)
 - The `biso-interview-pool.mdx` artifact stub is publishable: it contains no participant data.
 - Always anonymize practitioner examples in research data artifacts.
 - No em dashes (or en dashes) in any repo text: content, metadata and page titles, aria and screen-reader labels, alt text, code comments, and docs. Use commas, colons, periods, or parentheses; use a hyphen for ranges. `scripts/check-dashes.mjs` enforces this at prebuild. It scans `app/`, `components/`, `content/`, `lib/`, `docs/`, `scripts/`, every `research/project-*/` folder, `STATUS.md`, `CLAUDE.md`, and `README.md`. Read-only research folders are excluded through the `READ_ONLY_RESEARCH` list in that script (currently `project-001-biso`).
-- Page title format: `<Page title> | Joe C. Hawley · Research`, site name exactly once. Page metadata sets only the page title; the root layout template adds the site name. Use `:` inside a page title if a separator is needed.
+- Page title format: `<Page title> | Joe C. Hawley`, site name exactly once. Page metadata sets only the page title; the root layout template adds the site name. Use `:` inside a page title if a separator is needed.
 - Never commit employer-specific data, names, or confidential material.
 - Project 002 outputs frame the work as an industry problem. Never name an employer, an executive, or an internal request as the origin of the research.
 - Hypotheses are not a thesis. Do not promote hypotheses into `workingThesis` or increment `thesisVersion` unless told to.
@@ -265,14 +265,14 @@ npm run build     # must pass with 0 errors
 
 ### Release process
 
-1. Update `docs/releases/vX.Y.Z.md`
+1. Write `docs/releases/vX.Y.Z.md` in the same commit as the release changes
 2. Run `npm run build`
 3. Commit and push to `main`
 4. Run `docs/reviews/Production-Validation-Checklist.md` and verify the release live
-5. Tag the release: `git tag -a vX.Y.Z -m "Description"`
+5. Tag that commit: `git tag -a vX.Y.Z -m "Description"`
 6. Push tag: `git push origin vX.Y.Z`
 
-Tag only after the last commit of the release is pushed and verified live. Never move a pushed tag; ship a follow-up fix as a new patch version.
+Tag only after the last commit of the release is pushed and verified live. Never add release notes after tagging; they belong in the tagged commit. Never move a pushed tag; ship a follow-up fix as a new patch version.
 
 ### Versioning
 
@@ -286,7 +286,8 @@ v0.2.4    Icon link fix: SVG and PNG icons both linked
 v0.2.5    Homepage leads with current research
 v0.2.6    Mission line, About copy, header and footer separation
 v0.2.7    Repo split: site repo without research sources
-v0.2.8    Repo split follow-up: build fix, commit author (current)
+v0.2.8    Repo split follow-up: build fix, commit author
+v0.2.9    joechawley.com primary domain, site name Joe C. Hawley, About rewrite (current)
 v0.3.0    Phase 7 complete: all artifacts converted
 v0.4.0    First paper submitted
 v1.0.0    First paper published
@@ -307,7 +308,7 @@ Vercel auto-deploys on push to `main`. No manual deployment step required.
 
 ### After deploying
 
-Verify these routes on https://research.joechawley.com show the current site name and domain:
+Verify these routes on https://joechawley.com show the current site name and domain:
 
 - `/`: Homepage
 - `/research`: Research listing
@@ -318,6 +319,7 @@ Verify these routes on https://research.joechawley.com show the current site nam
 - `/sitemap.xml`: Must contain production domain, not localhost
 - `/opengraph-image`: Must return a 1200×630 PNG with the current site name and domain
 - `/favicon.ico`, `/icon1.svg`, `/icon2.png`, `/apple-icon.png`: H mark favicon loads
+- https://research.joechawley.com/about: 308 redirect to https://joechawley.com/about
 
 For every changed page, check the rendered `<title>`, the visible text, and the stage tracker. Checking that the page loads is not enough.
 

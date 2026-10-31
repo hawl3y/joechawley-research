@@ -18,18 +18,6 @@ export default function Footer() {
           {/* External links */}
           <div className="flex flex-col gap-2 sm:items-end shrink-0">
             <a
-              href={SITE.links.personal}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-muted hover:text-navy transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 rounded-sm"
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-              joechawley.com
-            </a>
-            <a
               href={SITE.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -45,6 +33,9 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-gray-100">
           <p className="text-xs text-muted">
+            {SITE.disclaimer}
+          </p>
+          <p className="mt-2 text-xs text-muted">
             &copy; {SITE.year} {SITE.author}
           </p>
         </div>

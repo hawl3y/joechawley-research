@@ -1,6 +1,6 @@
 # Production Validation Checklist
 
-> Updated for v0.2.0: the public site is Joe C. Hawley · Research at https://research.joechawley.com. The internal project name is joechawley-research (formerly Tradecraft Labs).
+> Updated for v0.2.9: the public site is Joe C. Hawley at https://joechawley.com; research.joechawley.com and www.joechawley.com redirect (308) to it. The internal project name is joechawley-research (formerly Tradecraft Labs).
 **Version:** v0.1.0  
 **Platform:** Vercel  
 **Use:** Run this checklist after each production deployment
@@ -13,8 +13,8 @@ Mark each item `[x]` when confirmed. Add the reviewer and date at the bottom of 
 
 ### Environment Variables
 
-- [ ] `NEXT_PUBLIC_SITE_URL` is set to the production URL (`https://research.joechawley.com`)
-- [ ] `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set to the registered domain (`research.joechawley.com`)
+- [ ] `NEXT_PUBLIC_SITE_URL` is set to the production URL (`https://joechawley.com`)
+- [ ] `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set to the registered domain (`joechawley.com`)
 - [ ] No `.env` file is committed to the repository
 - [ ] Both variables are confirmed in Vercel project → Settings → Environment Variables
 
@@ -82,16 +82,16 @@ Verify each page loads correctly and without console errors.
 
 Open browser DevTools → View Source (or inspector) on the homepage to verify:
 
-- [ ] `<title>` is `Joe C. Hawley · Research`
+- [ ] `<title>` is `Joe C. Hawley`
 - [ ] `<meta name="description">` contains the site mission statement
 - [ ] `<meta property="og:image">` points to the production domain (not localhost or preview)
-- [ ] `<meta property="og:site_name">` is `Joe C. Hawley · Research`
+- [ ] `<meta property="og:site_name">` is `Joe C. Hawley`
 - [ ] `<meta name="twitter:card">` is `summary_large_image`
 
 ### Sitemap
 
 - [ ] All 21+ content routes are present in `/sitemap.xml`
-- [ ] URLs use the production domain (`https://research.joechawley.com/research/...`)
+- [ ] URLs use the production domain (`https://joechawley.com/research/...`)
 - [ ] No `localhost` or Vercel preview URLs appear in the sitemap
 
 ### robots.txt
@@ -116,7 +116,7 @@ Test at: [https://cards-dev.twitter.com/validator](https://cards-dev.twitter.com
 Test at: [https://developers.facebook.com/tools/debug/](https://developers.facebook.com/tools/debug/) or LinkedIn Post Inspector
 
 - [ ] OG image renders at correct dimensions
-- [ ] Title is `Joe C. Hawley · Research`
+- [ ] Title is `Joe C. Hawley`
 - [ ] Description is the site mission
 
 ### iMessage / Slack Link Preview
@@ -134,7 +134,7 @@ Test at: [https://developers.facebook.com/tools/debug/](https://developers.faceb
 ### Plausible Setup (First Deployment Only)
 
 - [ ] Account created at plausible.io
-- [ ] Domain `research.joechawley.com` added to Plausible
+- [ ] Domain `joechawley.com` added to Plausible
 - [ ] `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` env var matches the Plausible-registered domain exactly
 - [ ] Script appears in page source: `<script defer data-domain="..." src="https://plausible.io/js/script.js">`
 

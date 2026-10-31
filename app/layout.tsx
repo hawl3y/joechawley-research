@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   description: SITE.mission.full,
   metadataBase: new URL(SITE.url),
-  authors: [{ name: SITE.author, url: SITE.links.personal }],
+  authors: [{ name: SITE.author, url: SITE.url }],
   creator: SITE.author,
   openGraph: {
     siteName: SITE.name,

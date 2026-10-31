@@ -1,4 +1,4 @@
-# Joe C. Hawley · Research
+# Joe C. Hawley
 
 Repository: https://github.com/hawl3y/joechawley-research (formerly Tradecraft Labs).
 
@@ -26,6 +26,5 @@ Built with Next.js 15, Contentlayer2, and Tailwind CSS. Statically generated and
 
 ## Links
 
-- Site: [research.joechawley.com](https://research.joechawley.com)
-- Researcher: [joechawley.com](https://joechawley.com)
+- Site: [joechawley.com](https://joechawley.com) (research.joechawley.com redirects here)
 - Contact: [LinkedIn](https://www.linkedin.com/in/joechawley/)
