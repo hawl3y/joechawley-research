@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-geist: '';
+    --font-lora: '';
+    --font-geist-mono: '';
+  }
+
+  html {
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
