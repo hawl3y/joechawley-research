@@ -285,7 +285,8 @@ v0.2.3    Favicon: shared H mark from joehawley.com
 v0.2.4    Icon link fix: SVG and PNG icons both linked
 v0.2.5    Homepage leads with current research
 v0.2.6    Mission line, About copy, header and footer separation
-v0.2.7    Repo split: site repo without research sources (current)
+v0.2.7    Repo split: site repo without research sources
+v0.2.8    Repo split follow-up: build fix, commit author (current)
 v0.3.0    Phase 7 complete: all artifacts converted
 v0.4.0    First paper submitted
 v1.0.0    First paper published
