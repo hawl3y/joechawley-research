@@ -33,7 +33,7 @@ Thumbs.db
 # Claude Code
 .claude/
 
-# Research participant data (PII — excluded from public repository)
+# Research participant data (PII, excluded from public repository)
 research/**/Interview_Pool*.docx
 
 # TypeScript
@@ -53,3 +53,6 @@ docs/screenshots/
 
 # Local site copy extracts (never commit)
 docs/reviews/site-copy*.txt
+
+# Word documents (platform specs live in the private sources repo)
+docs/*.docx
