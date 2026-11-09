@@ -11,7 +11,7 @@ export const SITE = {
     // Used in header subtitle and meta description
     short: 'Independent research on cybersecurity governance',
     // Used in hero, footer, about page, and OG meta
-    full: 'Research on how security organizations measure, prove, and communicate the value they deliver.',
+    full: 'I study how security teams measure and show the value of their work to the business.',
   },
   links: {
     linkedin: 'https://www.linkedin.com/in/joechawley/',
