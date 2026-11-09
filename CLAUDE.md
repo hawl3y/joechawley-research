@@ -12,12 +12,13 @@ Bare minimum. Blunt, direct. No preamble, no recaps, no explanations unless aske
 
 ## Reporting
 
-- Report in 5 lines or fewer, bottom line first.
-- Line 1: done or blocked. Then hashes and pushed or not.
-- Only list decisions you need from me, as numbered questions.
-- Mention extra fixes in one line each, only if they changed published content.
-- No tables, no restating the request, no per-file detail, no explanations unless asked.
-- Never skip verification. Report it in one line ("Verified: <pages>").
+- Max 3 lines. Fragments, not sentences.
+- Line 1: Done/Blocked, hash, pushed/deployed.
+- Line 2: Verified: <pages>.
+- Line 3 only if needed: numbered questions or fixes, a few words each.
+- No explanations or bullets unless asked.
+
+Example: "Done. 22ff058 pushed, deployed. Verified: home, /research, /journal. Fixed: CLAUDE.md repo visibility."
 
 ---
 
