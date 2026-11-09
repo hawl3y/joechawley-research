@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import PageLayout from '@/components/layout/PageLayout'
 import PublicationCard from '@/components/research/PublicationCard'
-import { getAllPublications } from '@/lib/content'
+import { getAllPublications, getActiveProjects } from '@/lib/content'
 import { SITE, OG_DEFAULTS } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 
 export default function PublicationsPage() {
   const publications = getAllPublications()
+  const current = getActiveProjects()[0]
 
   return (
     <PageLayout>
@@ -44,7 +45,7 @@ export default function PublicationsPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/research"
+              href={current ? `/research/${current.slug}` : '/research'}
               className="text-sm text-navy hover:underline font-medium"
             >
               View current research →
