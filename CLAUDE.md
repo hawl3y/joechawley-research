@@ -162,6 +162,7 @@ Projects: `project-001-biso` (paused), `project-002-cyber-value` (current)
 - Artifact slugs are permanent once published.
 
 ### Content
+- All public copy follows docs/voice-guide.md.
 - Do not publish participant names, contact information, or identifiers.
 - `Interview_Pool_v1.docx` is excluded from git by `.gitignore` and must remain excluded.
 - The `biso-interview-pool.mdx` artifact stub is publishable: it contains no participant data.
