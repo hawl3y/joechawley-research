@@ -44,10 +44,9 @@ export default function AboutPage() {
           {SITE.mission.full}
         </p>
         <p className="font-serif text-lg text-muted leading-relaxed">
-          Research is the product. This platform documents research in
-          progress, not just final outputs. Working theories, raw
-          observations, literature frameworks, and the reasoning behind
-          decisions are published as they develop.
+          Research is the product. I publish work in progress, not only
+          final results. Working theories, raw observations, literature
+          notes, and the reasons behind my decisions go up as they develop.
         </p>
       </section>
 
@@ -57,9 +56,9 @@ export default function AboutPage() {
         {current && (
           <>
             <p className="font-serif text-lg text-muted leading-relaxed mb-5">
-              The current research, Project {current.projectNumber}, asks:{' '}
-              {current.researchQuestion} The study is role-neutral: it does
-              not assume or test any specific security role.
+              My current research, Project {current.projectNumber}, asks:{' '}
+              {current.researchQuestion} It does not assume or test any
+              specific security role.
             </p>
             {current.researchQuestions && current.researchQuestions.length > 0 && (
               <ResearchQuestion
@@ -71,8 +70,8 @@ export default function AboutPage() {
           </>
         )}
         <p className="font-serif text-lg text-muted leading-relaxed">
-          Earlier research examined the BISO as a governance intermediary
-          (paused).
+          My earlier project, on how security and business leaders make risk
+          decisions together, is paused.
         </p>
       </section>
 
@@ -80,17 +79,35 @@ export default function AboutPage() {
       <section className="mb-12 pb-12 border-b border-gray-100">
         <h2 className="font-serif font-medium text-xl text-ink mb-4">About the Researcher</h2>
         <p className="font-serif text-lg text-muted leading-relaxed mb-5">
-          I help organizations make clear, risk-informed security decisions.
-          I am a director-level security leader in the medical technology
-          industry, with 20+ years in the field. I started in software and web
-          development and now work on enterprise security strategy. Based in
-          New York.
+          I lead cybersecurity strategy in the medical technology industry,
+          with 20+ years in technology. I help business leaders make clear,
+          risk-informed security decisions. I started in software and web
+          development. Based in New York.
         </p>
         <p className="font-serif text-lg text-muted leading-relaxed">
           I am completing a Master of Science in Cybersecurity at Georgia
-          Tech. My graduate research develops and evaluates a framework for
-          measuring and communicating the realized business value of
-          cybersecurity, using Design Science Research.
+          Tech. For my graduate research, I am building and testing a
+          framework that helps security teams measure and report the
+          business value of their work. The method is Design Science
+          Research.
+        </p>
+      </section>
+
+      {/* Why I do this work */}
+      <section className="mb-12 pb-12 border-b border-gray-100">
+        <h2 className="font-serif font-medium text-xl text-ink mb-4">Why I do this work</h2>
+        <p className="font-serif text-lg text-muted leading-relaxed">
+          Although I began working with technology at an early age, most of
+          my career has been at the intersection of business needs and
+          technical capacity. Often, there is no clear return on investment
+          or easy way to tie the work&apos;s value to the company&apos;s
+          strategy and revenue. People working on these projects want their
+          efforts to matter, and leaders need them to matter too. Aligning
+          technical priorities with business goals is easier said than done.
+          Now, as a cybersecurity leader focused on strategy, I face the same
+          challenge. I hope this research helps practitioners and leaders
+          measure and report the value their teams bring to the business in
+          clear, simple terms.
         </p>
       </section>
 
@@ -156,8 +173,8 @@ export default function AboutPage() {
 
         <div className="mt-8 pt-6 border-t border-gray-100">
           <p className="text-sm text-muted leading-relaxed">
-            For research inquiries or collaboration,
-            reach out via{' '}
+            For research questions or collaboration,
+            contact me on{' '}
             <a
               href={SITE.links.linkedin}
               target="_blank"
