@@ -21,7 +21,7 @@ export default function ThesisBlock({ thesis, version, className }: ThesisBlockP
         {thesis}
       </blockquote>
       <p className="mt-3 text-xs text-muted">
-        This thesis evolves as research progresses.
+        I will revise this thesis as the research progresses.
       </p>
     </div>
   )

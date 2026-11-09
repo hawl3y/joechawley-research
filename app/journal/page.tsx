@@ -7,7 +7,7 @@ import { getAllJournalEntries, getAllProjects } from '@/lib/content'
 export const metadata: Metadata = {
   title: 'Research Journal',
   description:
-    'A continuous record of research in progress: milestones, reflections, updates, and observations.',
+    'My log of the research as it happens: milestones, reflections, updates, and observations.',
 }
 
 interface PageProps {
@@ -51,7 +51,7 @@ export default async function JournalPage({ searchParams }: PageProps) {
       <div className="mb-10">
         <h1 className="font-serif font-medium text-3xl text-ink mb-2">Research Journal</h1>
         <p className="text-base text-muted">
-          A continuous record of research in progress.
+          My log of the research as it happens.
         </p>
       </div>
 
